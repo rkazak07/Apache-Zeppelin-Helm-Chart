@@ -68,4 +68,4 @@ The following table lists the configurable parameters of the Hadoop chart and th
 
 ## Referances
 
-https://github.com/helm/charts/tree/master/stable/zeppelin
+- Chart can use the hadoop config for the hadoop cluster and use the YARN executor: https://github.com/kubernetes/charts/tree/master/stable/zeppelin
