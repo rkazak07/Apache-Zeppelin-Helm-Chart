@@ -52,7 +52,7 @@ The following table lists the configurable parameters of the Hadoop chart and th
 | `zeppelin.resources`                   | Resource limits and requests                                     | `limits.memory=4096Mi,limits.cpu=2000m`                                                           |
 | `spark.driverMemory`                   | Memory used by Spark driver (Java notation)                      | `1g`
 | `spark.executorMemory`                 | Memory used by Spark executors (Javanotation)                           | `1g`                                                            |
-| `spark.numExecutors`                   |Number of Spark executors|                                        | `2`
+| `spark.numExecutors`                   |Number of Spark executors                                        | `2`
 | `hadoop.useConfigMap`                  | Use external Hadoop configuration for Spark executors                                         | `false`                                                               |
 | `hadoop.configPath`                    | 	Path in the Zeppelin image where the Hadoop config is mounted   | `/usr/hadoop-3.3.2/etc/hadoop`    |
 | `ingress.enabled`                      | Enable ingress                                                  | `false`                                                               |
