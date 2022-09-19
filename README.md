@@ -36,8 +36,8 @@ https://github.com/rkazak07/hadoop-kubernetes-deploy.git
 
 ```
 $ helm install hadoop-cluster . -f values.yaml -n hadoop-cls
-
-````
+```
+```
 $ helm install --set hadoop.useConfigMap=true,hadoop.configMapName=hadoop-hadoop stable/zeppelin
 ```
 
