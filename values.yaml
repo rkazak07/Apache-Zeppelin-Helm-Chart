@@ -5,7 +5,7 @@ zeppelin:
       memory: "4096Mi"
       cpu: "2000m"
 
-replicas: 3
+replicas: 1
 
 hadoop:
   useConfigMap: true
