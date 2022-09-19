@@ -6,9 +6,9 @@ zeppelin:
       cpu: "2000m"
 
 hadoop:
-  useConfigMap: false
+  useConfigMap: true
   configMapName: hadoop-hadoop
-  configPath: /usr/hadoop-2.7.3/etc/hadoop
+  configPath: /usr/hadoop-3.3.2/etc/hadoop
 
 spark:
   driverMemory: 1g
@@ -16,14 +16,15 @@ spark:
   numExecutors: 2
 
 ingress:
-  enabled: false
-  annotations: {}
+  enabled: true
+  annotations: 
     # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+     kubernetes.io/tls-acme: "true"
     # nginx.ingress.kubernetes.io/auth-secret: zeppelin-tls-secret
   path: /
+  pathType: Prefix
   hosts:
-    - zeppelin.local
+    - zeppelin.10.10.33.102.nip.io
   tls: []
     # - secretName: zeppelin-tls-secret
     #   hosts: zeppelin.local

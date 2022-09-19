@@ -1,7 +1,9 @@
 {{- if .Values.ingress.enabled }}
 {{- $ingressPath := .Values.ingress.path -}}
+{{- $ingresspathType := .Values.ingress.pathType -}}
 {{- $fullName := printf "%s-zeppelin" .Release.Name -}}
-apiVersion: extensions/v1beta1
+#apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
@@ -21,9 +23,13 @@ spec:
     http:
       paths:
         - path: {{ $ingressPath }}
+          #pathType: Prefix
+          pathType: {{ $ingresspathType }}
           backend:
-            serviceName: {{ $fullName }}
-            servicePort: 8080
+            service:
+              name: {{ $fullName }}
+              port:
+                number: 8080
   {{- end }}
 {{- if .Values.ingress.tls }}
   tls:
