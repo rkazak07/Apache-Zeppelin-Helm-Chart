@@ -1,9 +1,11 @@
 zeppelin:
-  image: dylanmei/zeppelin:0.7.3
+  image: apache/zeppelin:0.10.1
   resources:
     limits:
       memory: "4096Mi"
       cpu: "2000m"
+
+replicas: 3
 
 hadoop:
   useConfigMap: true
