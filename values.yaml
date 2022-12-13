@@ -18,10 +18,10 @@ spark:
   numExecutors: 2
 
 ingress:
-  enabled: true
+  enabled: false
   annotations: 
     # kubernetes.io/ingress.class: nginx
-     kubernetes.io/tls-acme: "true"
+    # kubernetes.io/tls-acme: "true"
     # nginx.ingress.kubernetes.io/auth-secret: zeppelin-tls-secret
   path: /
   pathType: Prefix
@@ -29,6 +29,6 @@ ingress:
     - zeppelin.10.10.33.102.nip.io
   tls: []
     # - secretName: zeppelin-tls-secret
-    #   hosts: zeppelin.local
+    #   hosts: zeppelin.10.10.33.102.nip.io
 
 nodeSelector: {}
