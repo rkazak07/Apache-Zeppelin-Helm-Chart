@@ -1,44 +1,41 @@
-# Zeppelin Helm Chart
--------------------------------------------------------------------------------------------------------
+# Zeppelin
 
 Zeppelin is a web based notebook for interactive data analytics with Spark, SQL and Scala.
 
--------------------------------------------------------------------------------------------------------
 
-# Installation
+# Hadoop
 
+The Hadoop chart can be used to create a YARN cluster where Spark jobs are executed.
+
+* For Hadoop helm installations, visit  [Hadoop][1] 
+
+
+### Quick Installation
+
+This chart requires the following charts before install Zeppelin
+* Hadoop
+
+> Create Namespace
 ```
 $ kubectl create ns hadoop-cls
 ```
 
-```
-$ helm install zeppelin . -f values.yaml -n hadoop-cls
-```
-
-# Upgrade
-
+### Deploy Chart
 
 ```
-$ helm upgrade  --install zeppelin . -f values.yaml -n hadoop-cls
+$ helm install my-release . -f values.yaml -n hadoop-cls
 ```
 
-## Related charts
-
--------------------------------------------------------------------------------------------------------
-
-The Hadoop chart can be used to create a YARN cluster where Spark jobs are executed:
-
--------------------------------------------------------------------------------------------------------
-## Hadoop installation
-
-https://github.com/rkazak07/hadoop-kubernetes-deploy.git
-
+### Upgrade Chart
 
 ```
-$ helm install hadoop-cluster . -f values.yaml -n hadoop-cls
+$ helm upgrade  --install my-release . -f values.yaml -n hadoop-cls
 ```
+
+### Delete Chart
+
 ```
-$ helm install --set hadoop.useConfigMap=true,hadoop.configMapName=hadoop-hadoop stable/zeppelin
+$ helm delete -n hadoop-cls my-release
 ```
 
 
@@ -54,7 +51,7 @@ The following table lists the configurable parameters of the Hadoop chart and th
 | `spark.executorMemory`                 | Memory used by Spark executors (Javanotation)                           | `1g`                                                            |
 | `spark.numExecutors`                   |Number of Spark executors                                        | `2`
 | `hadoop.useConfigMap`                  | Use external Hadoop configuration for Spark executors                                         | `false`                                                               |
-| `hadoop.configPath`                    | 	Path in the Zeppelin image where the Hadoop config is mounted   | `/usr/hadoop-3.3.3/etc/hadoop`    |
+| `hadoop.configPath`                    | 	Path in the Zeppelin image where the Hadoop config is mounted   | `/usr/hadoop-3.3.4/etc/hadoop`    |
 | `ingress.enabled`                      | Enable ingress                                                  | `false`                                                               |
 | `ingress.annotations`                  | Ingress annotations                                                 | `{}`                                                               |
 | `ingress.hosts`                        | Ingress Hostnames                                                 | `["zeppelin.local"]`    |
@@ -69,3 +66,5 @@ The following table lists the configurable parameters of the Hadoop chart and th
 ## Referances
 
 - Chart can use the hadoop config for the hadoop cluster and use the YARN executor: https://github.com/kubernetes/charts/tree/master/stable/zeppelin
+
+[1]: https://github.com/rkazak07/Hadoop-Helm-chart
