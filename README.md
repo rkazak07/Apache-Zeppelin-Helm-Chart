@@ -13,7 +13,7 @@ The Hadoop chart can be used to create a YARN cluster where Spark jobs are execu
 ### Quick Installation
 
 This chart requires the following charts before install Zeppelin
-* Hadoop
+* [Hadoop][1]
 
 > Create Namespace
 ```
